@@ -113,4 +113,25 @@ aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "
 ```
 git add .
 ```
-
+```
+mkdir terraform
+touch terraform/.gitignore
+```
+```
+terraform/.gitignore  
+- локальные директории .terraform на любом уровне
+- файлы с расширением tfstate или похожим на него - данные о текущем состоянии инфраструктуры
+- файлы логов - не нужны в гите
+- файлы переменных .tfvars, где могут находиться секреты
+- все файлы, названия которых заканчиваются на override.tf или override.tf.json
+- .terraform.tfstate.lock.info - файл состояния
+- .terraformrc и terraform.rc - файлы конфигурации терминала
+```
+```
+git commit -m "Added gitignore"
+```
+# Эксперимент с удалением и перемещением файлов (третий и четвёртый коммит)
+```
+echo 'will_be_deleted' > will_be_deleted.txt
+echo 'will_be_moved' > will_be_moved.txt
+```
