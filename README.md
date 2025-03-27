@@ -36,5 +36,25 @@ index 647b370..4c88500 100644
 +git config --global user.name nataliya-panina
 
 moi@ubu:~/devops-netology$ git diff --staged
-moi@ubu:~/devops-netology$ 
-
+moi@ubu:~/devops-netology$ git add README.md 
+moi@ubu:~/devops-netology$ git diff
+moi@ubu:~/devops-netology$ git diff --staged
+diff --git a/README.md b/README.md
+index 647b370..5cd540e 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,40 @@
+-# devops-netology
+\ No newline at end of file
++# devops-netology
++# Первоначальная настройка
++```
++git config --global user.name nataliya-panina
++git config --global user.email nataliya.panina@free.fr
++```
++# git status
++moi@ubu:~/devops-netology$ git status
+moi@ubu:~/devops-netology$ git commit -m "First commit"
+[main df0e3ba] First commit
+ 1 file changed, 40 insertions(+), 1 deletion(-)
+ rewrite README.md (100%)
