@@ -136,3 +136,4 @@ echo 'will_be_deleted' > will_be_deleted.txt
 echo 'will_be_moved' > will_be_moved.txt
 git commit -am "Prepare to delete and move"
 ```
+end
