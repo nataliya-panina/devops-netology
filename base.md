@@ -11,7 +11,7 @@ git remote -v
 git push gitlab main
 ```
 
-![git_remote](https://github.com/nataliya-panina/devops-netology/blob/main/img/git_remote_v.png)
+![git_remote](https://github.com/nataliya-panina/devops-netology/blob/v0.1/img/git_remote_v.png)
 
 2. ## Теги  
 
@@ -31,9 +31,9 @@ git push gitlab v0.0
 git tag -a v0.1 -m "tag 0.1" # -а - аннотированный тэг
 git push origin --tags # Отправка всех тэгов вместе с коммитом в удаленный репозиторий
 ```
-![tags](https://github.com/nataliya-panina/devops-netology/blob/main/img/tag_v0.0.png)  
-![tags](https://github.com/nataliya-panina/devops-netology/blob/main/img/tag_v0.0_web.png)  
-![tags](https://github.com/nataliya-panina/devops-netology/blob/main/img/tags.png)  
+![tags](https://github.com/nataliya-panina/devops-netology/blob/v0.1/img/tag_v0.0.png)  
+![tags](https://github.com/nataliya-panina/devops-netology/blob/v0.1/img/tag_v0.0_web.png)  
+![tags](https://github.com/nataliya-panina/devops-netology/blob/v0.1/img/tags.png)  
   
 Установка тэга на уже существующий коммит 
 
