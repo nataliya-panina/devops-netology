@@ -139,3 +139,4 @@ git rm will_be_deleted.txt
 git mv will_be_moved.txt has_been_moved.txt
 git commit -am "Moved and deleted"
 ```
+end
