@@ -120,6 +120,7 @@ Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
 ### Rebase
 **Шаг 1.** Перед мержем ветки git-rebase выполним её rebase на main. Да, мы специально создали ситуацию с конфликтами, чтобы потренироваться их решать. **Шаг 2.** Переключаемся на ветку git-rebase и выполняем git rebase -i main. В открывшемся диалоге должно быть два выполненных коммита, давайте заодно объединим их в один, указав слева от нижнего fixup. В результате получаем:
 ```
+
 $ git rebase -i main
 Auto-merging branching/rebase.sh
 CONFLICT (content): Merge conflict in branching/rebase.sh
@@ -138,6 +139,7 @@ cat rebase.sh
 # display command line options
 count=1
 for param in "$@"; do
+<<<<<<< HEAD
     echo "Parameter: $param"
     count=$(( $count + 1 ))
 done
@@ -154,6 +156,26 @@ echo "\$@ Parameter #$count = $param"
 
 В результате будет открыт текстовый редактор, предлагающий написать комментарий к новому объединённому коммиту:
 ```
+=======
+<<<<<<< HEAD
+    echo "\$@ Parameter #$count = $param"
+=======
+    echo "Parameter: $param"
+>>>>>>> dc4688f... git 2.3 rebase @ instead *
+    count=$(( $count + 1 ))
+done
+Шаг 3. Удалим метки, отдав предпочтение варианту:
+
+echo "\$@ Parameter #$count = $param"
+Шаг 4. Сообщим Git, что конфликт решён git add rebase.sh и продолжим rebase git rebase --continue.
+
+Шаг 5. Опять получим конфликт в файле rebase.sh при попытке применения нашего второго коммита. Давайте разрешим конфликт, оставив строчку echo "Next parameter: $param".
+
+Шаг 6. Далее опять сообщаем Git о том, что конфликт разрешён — git add rebase.sh — и продолжим rebase — git rebase --continue.
+
+В результате будет открыт текстовый редактор, предлагающий написать комментарий к новому объединённому коммиту:
+
+>>>>>>> 92d51c7 (git-rebase 1)
 # This is a combination of 2 commits.
 # This is the 1st commit message:
 
@@ -162,6 +184,7 @@ Merge branch 'git-merge'
 # The commit message #2 will be skipped:
 
 # git 2.3 rebase @ instead * (2)
+<<<<<<< HEAD
 ```
 Все строчки, начинающиеся на #, будут проигнорированны.
 
@@ -174,6 +197,17 @@ Successfully rebased and updated refs/heads/git-rebase
 
 Эта команда завершится с ошибкой:
 ```
+=======
+Все строчки, начинающиеся на #, будут проигнорированны.
+
+После сохранения изменения Git сообщит:
+
+Successfully rebased and updated refs/heads/git-rebase
+Шаг 7. И попробуем выполнить git push либо git push -u origin git-rebase, чтобы точно указать, что и куда мы хотим запушить.
+
+Эта команда завершится с ошибкой:
+
+>>>>>>> 92d51c7 (git-rebase 1)
 git push
 To github.com:andrey-borue/devops-netology.git
  ! [rejected]        git-rebase -> git-rebase (non-fast-forward)
@@ -182,12 +216,19 @@ hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Integrate the remote changes (e.g.
 hint: 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+<<<<<<< HEAD
 ```
 
 Это произошло, потому что мы пытаемся перезаписать историю.
 
 **Шаг 8.** Чтобы Git позволил нам это сделать, добавим флаг force:
 ```
+=======
+Это произошло, потому что мы пытаемся перезаписать историю.
+
+Шаг 8. Чтобы Git позволил нам это сделать, добавим флаг force:
+
+>>>>>>> 92d51c7 (git-rebase 1)
 git push -u origin git-rebase -f
 Enumerating objects: 10, done.
 Counting objects: 100% (9/9), done.
@@ -199,7 +240,10 @@ remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To github.com:andrey-borue/devops-netology.git
  + 1829df1...e3b942b git-rebase -> git-rebase (forced update)
 Branch 'git-rebase' set up to track remote branch 'git-rebase' from 'origin'.
+<<<<<<< HEAD
 ```
+=======
+>>>>>>> 92d51c7 (git-rebase 1)
 Шаг 9. Теперь можно смержить ветку git-rebase в main без конфликтов и без дополнительного мерж-комита простой перемоткой:
 
 $ git checkout main
