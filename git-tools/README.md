@@ -70,6 +70,7 @@ Date:   Thu Mar 5 20:56:10 2020 +0000
     v0.12.23
 ```
 Коммит 85024d3 соответствует тэгу v0.12.23
+---
 
 2.    Сколько родителей у коммита b8d720? Напишите их хеши.  
 ---
@@ -82,7 +83,7 @@ commit 4703cb6c1c7a00137142da867588a5752c54fa6a
 Author: Kristin Laemmert <mildwonkey@users.noreply.github.com>
 Date:   Thu Mar 5 15:27:37 2020 -0500
 ```
-
+---
 3.    Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами v0.12.23 и v0.12.24.  
 ---
 ```
@@ -98,7 +99,7 @@ d5f9411f51 command: Fix bug when using terraform login on Windows
 dd01a35078 Update CHANGELOG.md
 225466bc3e Cleanup after v0.12.23 release
 ```
-
+---
 4.    Найдите коммит, в котором была создана функция func providerSource, её определение в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).  
 ---
 ```
@@ -138,7 +139,7 @@ diff --git a/provider_source.go b/provider_source.go
 @@ -0,0 +19,5 @@
 +func providerSource(services *disco.Disco) getproviders.Source {
 ```
-
+---
 5.    Найдите все коммиты, в которых была изменена функция globalPluginDirs.  
 ---
 ```
@@ -153,7 +154,7 @@ git log -SglobalPluginDirs --oneline
 c0b1761096 prevent log output during init
 8364383c35 Push plugin discovery down into command package
 ```
-
+---
 6.    Кто автор функции synchronizedWriters?  
 ---
 ```
